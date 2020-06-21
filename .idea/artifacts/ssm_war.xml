@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssm_war">
+    <output-path>$PROJECT_DIR$/../ssm/target</output-path>
+    <root id="archive" name="ssm_war.war" />
+  </artifact>
+</component>

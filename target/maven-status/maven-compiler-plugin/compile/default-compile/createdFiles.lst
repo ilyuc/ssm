@@ -1,0 +1,8 @@
+com\ssm\service\impl\TestServcieImp.class
+com\ssm\dao\impl\CommonDao.class
+com\ssm\service\TestServiceInterface.class
+com\ssm\dao\impl\UserDaoImpl.class
+com\ssm\dao\UserDao.class
+com\ssm\pojo\User.class
+com\ssm\util\DBUtil.class
+com\ssm\controller\TestSpringController.class

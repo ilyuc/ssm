@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace 是 dao interface 的全路径-->
+<mapper namespace="com.ssm.dao.UserDao">
+
+    <!--配置别名就可以用实体类名的小写作为 type ，不用写全路径了，没有配置别名如下-->
+    <!--<resultMap id="userList" type="com.ssm.pojo.User"> -->
+    <resultMap id="userList" type="user">
+        <id property="userId" column="USER_ID" />
+        <result property="userCreateDate" column="USER_CREATE_DATE"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="userPassword" column="USER_PASSWORD"/>
+        <result property="mail" column="MAIL"/>
+    </resultMap>
+
+    <!--id 的 值需要与 dao interface 中的方法名对应-->
+    <select id="findUserById" parameterType="String" resultType="user">
+        select * from ssm_user where user_id = #{userId}
+    </select>
+
+    <select id="findAllUser" resultMap="userList">
+        select * from ssm_user
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        delete from ssm_user where user_id = #{userId}
+    </delete>
+
+    <insert id="addUser" parameterType="user">
+        INSERT INTO ssm_user (USER_ID,USER_CREATE_DATE,USER_NAME,USER_PASSWORD,MAIL) VALUES (
+        #{userId},#{userCreateDate},#{userName},#{userPassword},#{mail})
+    </insert>
+</mapper>
